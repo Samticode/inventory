@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAS1BMVEUAAABBffdDfvZCffVDffZDfvZCfvVDffZAgPdDfvdEfPdAgPpAgP9CffdCffZDfPVCfvZDfvVCfvVDfvZDfvVDffVCffVCffZCffabpURMAAAAGXRSTlMAP2+fv//vryBfQDAQYHBQ38+AsKDw0ODAPVaxBQAAAJdJREFUeAG90UUChEAMBMBGGnf//0dXkbEMN+ocDx4VhFEck0mchhkseUpVXEBTxjSlFS51QltS4NDQrT3yKUhKfBUUdRU+esqGo4EoA0b6TEBHrwozvWpM9BqR0au7W4O3i+Kjnila8FUulDTHQ2epwKGqV1rmAaqsGfU6YwZLu2l/cClmvb2t4c9YQTJzKIoMsnot8Kg3R8EOVptnoVEAAAAASUVORK5CYII=">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <h1>Meny</h1>
+    <main>  
+        <div class="sidebar">
+            <div></div>
+            <div class="dbOptions">
+                <div class="searchBar">
+                    <input type="search" placeholder="Søk etter vare" name="" id="searchBar">
+                </div>
+                <form id="addInventoryForm" class="addInventoryForm" action="/add" method="POST">
+                    <div>
+                        <label for="name">Varenavn:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="user">Bruker:</label>
+                        <input type="text" id="user" name="user" required>
+                    </div>
+                    <div>
+                        <label for="serial">Serial nummer:</label>
+                        <input type="text" id="serial" name="serial" >
+                    </div>
+                    <div>
+                        <label for="mac">Mac:</label>
+                        <input type="text" id="mac" name="mac" >
+                    </div>
+                    <div>
+                        <label for="mac2">Mac2:</label>
+                        <input type="text" id="mac2" name="mac2" >
+                    </div>
+                    <div>
+                        <label for="ram">RAM:</label>
+                        <input type="text" id="ram" name="ram" >
+                    </div>
+                    <div>
+                        <label for="diskSpace">Lagring:</label>
+                        <input type="text" id="diskSpace" name="diskSpace" >
+                    </div>
+                    <div>
+                        <label for="cpu">CPU:</label>
+                        <input type="text" id="cpu" name="cpu" >
+                    </div>
+                    <div>
+                        <label for="powerSupply">Strømforsyning:</label>
+                        <input type="text" id="powerSupply" name="powerSupply" >
+                    </div>
+                    <div>
+                        <label for="os">Operativsystem:</label>
+                        <input type="text" id="os" name="os" >
+                    </div>
+                    <div>
+                        <label for="has_tpm">TMP2:</label>
+                        <input type="checkbox" id="has_tpm" name="has_tpm" value="1">
+                    </div>
+                    <div>
+                        <label for="purchaseDate">Kjøpsdato:</label>
+                        <input type="text" id="purchaseDate" name="purchaseDate" required>
+                    </div>
+                    <div>
+                        <label for="purchasePrice">Kjøpspris i NOK:</label>
+                        <input type="text" id="purchasePrice" name="purchasePrice" required>
+                    </div>
+                    <div>
+                        <label for="isOutdated">Gammel:</label>
+                        <input type="checkbox" id="isOutdated" name="isOutdated" value="1">
+                    </div>
+                    <div>
+                        <label for="changeDescription">Logg:</label>
+                        <input type="text" id="changeDescription" name="changeDescription" required>
+                    </div>
+                    <div>
+                        <label for="changeDate">Logg Dato:</label>
+                        <input type="text" id="changeDate" name="changeDate" required>
+                    </div>
+
+                    <button type="submit">Legg til</button>
+                </form>
+                <form id="editInventoryForm" class="none">
+                    <div>
+                        <label for="name">Varenavn:</label>
+                        <input type="text" id="editName" name="name">
+                    </div>
+                    <div>
+                        <label for="user">Bruker:</label>
+                        <input type="text" id="editUser" name="user">
+                    </div>
+                    <div>
+                        <label for="serial">Serial nummer:</label>
+                        <input type="text" id="editSerial" name="serial" >
+                    </div>
+                    <div>
+                        <label for="mac">Mac:</label>
+                        <input type="text" id="editMac" name="mac" >
+                    </div>
+                    <div>
+                        <label for="mac2">Mac2:</label>
+                        <input type="text" id="editMac2" name="mac2" >
+                    </div>
+                    <div>
+                        <label for="ram">RAM:</label>
+                        <input type="text" id="editRam" name="ram" >
+                    </div>
+                    <div>
+                        <label for="diskSpace">Lagring:</label>
+                        <input type="text" id="editDiskSpace" name="diskSpace" >
+                    </div>
+                    <div>
+                        <label for="cpu">CPU:</label>
+                        <input type="text" id="editCpu" name="cpu" >
+                    </div>
+                    <div>
+                        <label for="powerSupply">Strømforsyning:</label>
+                        <input type="text" id="editPowerSupply" name="powerSupply" >
+                    </div>
+                    <div>
+                        <label for="os">Operativsystem:</label>
+                        <input type="text" id="editOs" name="os" >
+                    </div>
+                    <div>
+                        <label for="has_tpm">TMP2:</label>
+                        <input type="checkbox" id="editHas_tpm" name="has_tpm" value="1">
+                    </div>
+                    <div>
+                        <label for="purchaseDate">Kjøpsdato:</label>
+                        <input type="text" id="editPurchaseDate" name="purchaseDate">
+                    </div>
+                    <div>
+                        <label for="purchasePrice">Kjøpspris i NOK:</label>
+                        <input type="text" id="editPurchasePrice" name="purchasePrice">
+                    </div>
+                    <div>
+                        <label for="isOutdated">Gammel:</label>
+                        <input type="checkbox" id="editIsOutdated" name="isOutdated" value="1">
+                    </div>
+                    <div>
+                        <label for="changeDescription">Logg:</label>
+                        <input type="text" id="editChangeDescription" name="changeDescription">
+                    </div>
+                    <div>
+                        <label for="changeDate">Logg Dato:</label>
+                        <input type="text" id="editChangeDate" name="changeDate">
+                    </div>
+                    <button type="submit" id="editIt">Rediger det</button>
+                    <button type="submit" id="deleteIt">Slett det</button>
+                </form>
+            </div>
+            <div class="lightmode">
+                <label for="radio">LightMode?</label>
+                <input type="checkbox" name="" id="lightmodeButton">
+
+                <label for="radio">English?</label>
+                <input type="checkbox" name="" id="languageButton">
+            </div>
+        </div>
+        <div class="mainSpace">
+            <table>
+                <thead>
+                    <tr class="thead">
+                        <!-- BASIC -->
+                        <th>Nr.</th>
+                        <th>NAVN</th>
+                        <th>KJØPT TIL</th>
+                        <!-- HARDWARE, SOFTWARE OG ID-->
+                        <th>SERIAL</th>
+                        <th>MAC ADRESSE</th>
+                        <th>MAC ADRESSE 2</th>
+                        <th>RAM</th>
+                        <th>LAGRING</th>
+                        <th>CPU</th>
+                        <th>STRØM</th>
+                        <th>OS</th>
+                        <th>TMP 2.0</th>
+                        <!-- EXTRA INFO -->
+                        <th>KJØPS DATO</th>
+                        <th>KJØPS PRIS</th>
+                        <th>GAMMEL?</th>
+                        <th>LOGG</th>
+                        <th>LOGG DATO</th>                
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+<script src="./index.js"></script>
+</html>
